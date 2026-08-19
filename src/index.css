@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color tokens — matched to the AMRI logo (navy / gold / white) */
+  --color-chalk-board: #101c4d;      /* deep logo navy — dark sections */
+  --color-chalk-board-2: #1a2c6b;    /* lighter navy panel */
+  --color-paper: #ffffff;            /* page paper — logo white */
+  --color-paper-line: #e2e6f2;       /* faint navy-tinted rule lines on paper */
+  --color-ink: #101c4d;              /* body text ink — logo navy */
+  --color-ink-soft: #4c5580;         /* secondary ink, navy-gray */
+  --color-chalk: #ffffff;            /* white, for text on navy */
+  --color-gold: #f2a223;             /* logo bulb/star orange-gold accent */
+  --color-gold-soft: #f8c877;
+  --color-pen: #1a2c6b;              /* ink-pen navy accent */
+  --color-pen-soft: #8791c2;
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/* Graph-paper texture for light sections */
+.paper-grid {
+  background-image:
+    linear-gradient(var(--color-paper-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-paper-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+/* Chalkboard texture for dark sections */
+.chalk-board {
+  background-color: var(--color-chalk-board);
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(255,255,255,0.035), transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(255,255,255,0.03), transparent 55%);
+}
+
+/* Double-rule notebook margin, echoing the original wireframe's "||" borders */
+.notebook-rule {
+  position: relative;
+}
+.notebook-rule::before,
+.notebook-rule::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+.notebook-rule::before {
+  left: 12px;
+  background: repeating-linear-gradient(to bottom, var(--color-pen-soft) 0, var(--color-pen-soft) 6px, transparent 6px, transparent 12px);
+  opacity: 0.35;
+}
+.notebook-rule::after {
+  right: 12px;
+  background: repeating-linear-gradient(to bottom, var(--color-pen-soft) 0, var(--color-pen-soft) 6px, transparent 6px, transparent 12px);
+  opacity: 0.35;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+/* Chalk-drawn button */
+.btn-chalk {
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
+  border: 1.5px dashed var(--color-chalk);
+  transition: all 0.2s ease;
+}
+.btn-chalk:hover {
+  background-color: var(--color-chalk);
+  color: var(--color-chalk-board);
+  border-style: solid;
+}
+
+.btn-ink {
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
+  border: 1.5px solid var(--color-ink);
+  transition: all 0.2s ease;
+}
+.btn-ink:hover {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.btn-gold {
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
+  background-color: var(--color-gold);
+  color: var(--color-chalk-board);
+  transition: all 0.2s ease;
+}
+.btn-gold:hover {
+  background-color: var(--color-gold-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
