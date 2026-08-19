@@ -33,7 +33,7 @@ export default function Footer() {
               <li>
                 <a href="mailto:contact@amri.org" className="hover:text-gold transition-colors">Email</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">LinkedIn</a>
               </li>
               <li>
@@ -41,7 +41,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/contact" className="hover:text-gold transition-colors">Location</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

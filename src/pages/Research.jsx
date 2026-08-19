@@ -1,5 +1,13 @@
 import PageHero from '../components/PageHero.jsx'
 import Button from '../components/Button.jsx'
+import { Code2, Activity, Layers, Database } from 'lucide-react'
+
+const tools = [
+  { icon: Code2, name: 'Python' },
+  { icon: Activity, name: 'MATLAB' },
+  { icon: Layers, name: 'Desmos graphing calculator' },
+  { icon: Database, name: 'GeoGebra' },
+]
 
 const areas = [
   { title: 'Pure Mathematics', items: ['Algebra', 'Analysis', 'Topology', 'Number Theory'] },
@@ -34,7 +42,40 @@ export default function Research() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
+      {/* COMPUTATIONAL MATHEMATICS & TOOLS */}
+      <section className="chalk-board text-chalk">
+        <div className="max-w-4xl mx-auto px-6 py-20">
+          <h2 className="font-display text-3xl font-semibold">Computational Mathematics &amp; Tools</h2>
+          <p className="mt-4 text-chalk/75 leading-relaxed max-w-2xl">
+            At AMRI, we leverage powerful computational tools to solve complex
+            mathematical problems. Our research methodology heavily relies on:
+          </p>
+
+          <div className="mt-10 grid sm:grid-cols-2 gap-5">
+            {tools.map(({ icon: Icon, name }) => (
+              <div
+                key={name}
+                className="flex items-center gap-4 border border-chalk/20 px-6 py-5 hover:border-gold transition-colors"
+              >
+                <Icon className="w-5 h-5 text-gold shrink-0" strokeWidth={2} />
+                <span className="font-mono text-sm uppercase tracking-wider">{name}</span>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 text-chalk/75 leading-relaxed max-w-2xl">
+            These tools allow us to perform advanced simulations, data analysis and
+            mathematical modeling — turning abstract theories into visual and
+            tangible results.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-paper">
+        <div className="max-w-6xl mx-auto px-6 py-20">
           <div className="mt-16 text-center">
             <p className="text-ink-soft mb-6">Want to collaborate on a research project or join a working group?</p>
             <Button to="/contact" variant="ink">Get in touch →</Button>
